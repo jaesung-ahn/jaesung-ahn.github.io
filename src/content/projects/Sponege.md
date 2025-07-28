@@ -8,7 +8,7 @@ repoURL: https://github.com/jaesung-ahn/sponge-server
 
 <!-- # 스펀지 -->
 
-![](sponge.jpeg)
+![](Sponge.jpeg)
 
 **스터디가 펀해지는 지금**
 
