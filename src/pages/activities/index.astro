@@ -1,0 +1,30 @@
+--- 
+import { getCollection } from "astro:content";
+import PageLayout from "@layouts/PageLayout.astro";
+import Container from "@components/Container.astro";
+import ArrowCard from "@components/ArrowCard.astro";
+import { ACTIVITIES } from "@consts";
+
+const activities = (await getCollection("activities"))
+  .filter((item) => !item.data.draft)
+  .sort((a, b) => b.data.dateStart.valueOf() - a.data.dateStart.valueOf());
+---
+
+<PageLayout title={ACTIVITIES.TITLE} description={ACTIVITIES.DESCRIPTION}>
+  <Container>
+    <div class="space-y-10">
+      <div class="animate font-semibold text-black dark:text-white">
+        Education & Activities
+      </div>
+      <ul class="animate flex flex-col gap-4">
+        {
+          activities.map((activity) => (
+            <li>
+              <ArrowCard entry={activity} />
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </Container>
+</PageLayout>
